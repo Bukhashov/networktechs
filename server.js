@@ -4,7 +4,7 @@ var cors = require('cors')
 const router = require('./app/routes/router');
 const db = require('./database');
 
-const port = process.env.APP_PORT | 3000
+const port = process.env.APP_PORT | 4000
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(cors({
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }))
 
-app.use('/api/v1/', router)
+app.use('/api/v1', router)
 
 app.listen(port, ()=> {
     try{

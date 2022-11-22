@@ -15,8 +15,7 @@ const db = new sqlite3.Database("db.db", (e)=>{
 
         db.run(`CREATE TABLE IF NOT EXISTS lecture (
             id INTEGER PRIMARY KEY,
-            title VARCHAR(50),
-            markdown VARCHAR(8000)
+            title VARCHAR(50)
         );`)
 
     }catch(e){
