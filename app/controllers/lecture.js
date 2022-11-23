@@ -4,14 +4,11 @@ var path = require('path');
 
 class Lecture{
     all = async (req, res) => {
-        let titles = [];
+        var titles = new Array();
         
-        db.each(`SELECT * FROM lecture`, (err, user)=> {
-           titles.push(user.titles);
+        db.all(`SELECT * FROM lecture`, async (err, lecture)=> {
+            res.status(200).json({"titles" : lecture });
         });
-
-        res.status(200).json({"tites" : titles });
-        
     }
     add = async (req, res) =>{
         const title = req.body.title;
@@ -35,7 +32,7 @@ class Lecture{
         console.log(title)
         
         fs.readFile(`${process.cwd()}/public/md/${title}.md`, 'utf8', (err, data)=> {
-            res.status(200).json({"md": data});
+            res.status(200).json({"title": title, "md": data});
         });
     }
     delete = async (req, res) => {

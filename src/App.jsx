@@ -13,9 +13,9 @@ function App() {
           <img className="w-full h-[60vh]" src="/images/net.png" alt="" />
         </div>
       </header>
-      <div className="wrapper">
+      <main className="wrapper">
         <Outlet/>
-      </div>
+      </main>
     </div>
   );
 }

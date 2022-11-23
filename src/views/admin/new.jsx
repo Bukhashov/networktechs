@@ -3,19 +3,30 @@ import MDEditor from '@uiw/react-md-editor';
 import axios from "axios";
 
 export default function New(){
-    const [value, setValue] = React.useState("**Hello world!!!**");
+    const [mdValue, setValue] = React.useState("**Hello world!!!**");
+    const [title, setTitle] = React.useState("");
+
 
     function save(params) {
+        console.log(title);
+        console.log(mdValue);
         axios.post('http://localhost:4000/api/v1/add/lecture', {
-            title: "title",
-            lecture: value,
+            title: title,
+            lecture: mdValue,
         })    
+    }
+
+    const changeTitle = (event)=> {
+        setTitle(event.target.value);
     }
 
     return(
         <div className="wrapper">
-            <MDEditor value={value} onChange={setValue} />
-            {/* <MDEditor.Markdown source={value} style={{ whiteSpace: 'pre-wrap' }} /> */}
+            <div className="flex p-2 items-center">
+                <h3>Title: </h3>
+                <input className="border mx-[2px] my-[2px]" value={title} type="text" onChange={changeTitle}></input>
+            </div>
+            <MDEditor value={mdValue} onChange={setValue} />
             <button onClick={save}>Saqtau</button>
         </div>        
     )
