@@ -5,11 +5,13 @@ export default function Read() {
     const data = Resdata.data;
     
     return(
-        <div className="grid">
-            <div className="">
+        <div className="grid my-4">
+            <div className="text-4xl py-[15px] text-center">
                 <h1>{data.title}</h1>
             </div>
-            <MDEditor.Markdown className="bg-black" source={data.md} style={{ whiteSpace: 'pre-wrap' }} />
+            <div className="px-10">
+                <MDEditor.Markdown className="bg-black" source={data.md} style={{ whiteSpace: 'pre-wrap' }} />
+            </div>
         </div>
     )
 }

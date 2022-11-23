@@ -16,6 +16,14 @@ function App() {
       <main className="wrapper">
         <Outlet/>
       </main>
+      <footer className="bg-gray-400 py-5">
+        <div className="wrapper">
+          <div className="flex justify-center text-white">
+            <div className="m-3">TJPK</div>
+            <div className="m-3">Aijan</div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

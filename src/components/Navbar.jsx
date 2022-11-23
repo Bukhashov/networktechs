@@ -1,19 +1,18 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 export default function Navbar(){
     let location = useLocation();
-    console.log(location)
-    
+
     return(
         <nav className="flex justify-between py-3">
             <div className="logo flex items-center text-xl">
                 <img className="w-9 h-9" src="/images/logo.png" alt="" />
-                <a href="/">NET</a>
+                <Link to={"/"}>NET</Link>
             </div>
             <div className="menu flex items-center">
-                <div className="menu_item mx-2"><a href="">Därιster</a></div>
-                <div className="menu_item mx-2"><a href="">Emtihan</a></div>
-                <div className="menu_item mx-2"><a href="">Sertifikat</a></div>
+                <div className="menu_item mx-2"><Link to={"/"}>Därιster</Link></div>
+                <div className="menu_item mx-2"><Link to={"/exam"}>Emtihan</Link></div>
+                <div className="menu_item mx-2"><Link to={"/certificate"}>Sertifikat</Link></div>
                 
             </div>
             <div className="auth flex items-center">

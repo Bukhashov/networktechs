@@ -1,0 +1,34 @@
+**Звезда** — базовая топология компьютерной сети, в которой все компьютеры сети присоединены к центральному узлу, образуя физический сегмент сети. Центральным узлом выступает концентратор, коммутатор или ПК. Рабочая станция, с которой необходимо передать данные, отсылает их на концентратор. В определённый момент времени только одна машина в сети может пересылать данные, если на концентратор одновременно приходят два пакета, обе посылки оказываются не принятыми и отправителям нужно будет подождать случайный промежуток времени, чтобы возобновить передачу данных. Этот недостаток отсутствует на сетевом устройстве более высокого уровня — коммутаторе, который, в отличие от концентратора, подающего пакет на все порты, подает лишь на определенный порт — получателю. Одновременно может быть передано несколько пакетов. Сколько — зависит от коммутатора. Достоинства звезды: выход из строя одной рабочей станции не отражается на работе всей сети в целом; лёгкий поиск неисправностей и обрывов в сети; высокая производительность сети (при условии правильного проектирования); гибкие возможности администрирования. Недостатки звезды: выход из строя центрального концентратора обернётся неработоспособностью сети (или сегмента сети) в целом; для прокладки сети зачастую требуется больше кабеля, чем для большинства других топологий; число рабочих станций в сети (или сегменте сети) ограничено количеством портов в центральном концентраторе.
+Praktıkalyq jumys Habqa negizdelgen juldyz topologıasymen jelini modeldeý
+--
+Bul mysalda biz Packet Tracer baǵdarlamalyq trenajerin qoldana otyryp, habqa negizdelgen juldyz topologıasy bar jelini quramyz (sýret. 3.1) jáne osy baǵdarlamada jumys isteýdiń birqatar jańa ádisterin ![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_1.png)`Sýret. 3.1. Habqa negizdelgen juldyz topologıasymen jelini modeldeý`
+Jumys aımaǵynda biz jeli túıinderin qurastyramyz
+--
+Biz Hub ' s jabdyǵynyń túrin tańdaımyz (habtar). "Jabdyqtyń osy túriniń qurylǵylar tizimi" mázirinde belgili bir hab - Hub-PT tańdap, ony tintýirmen baǵdarlamanyń jumys aımaǵyna súıreńiz. Ári qaraı, old Devices (sońǵy qurylǵylar) qurylǵysynyń túrin tańdap, qosymsha mázirden `PC-PT` jumys ústelin tańdap, ony tintýirmen baǵdarlamanyń jumys aımaǵyna súıreńiz. Osylaısha, biz taǵy úsh kompúter men bir serverdi ornatamyz.Kompúterler men serverdi habqa qosý úshin biz Connections (Qosylymdar) qurylǵylarynyń jańa túrin tańdaımyz, sodan keıin kabeldiń `Copper-Straight-Through` (mys túzý) túrin tańdaımyz. Kompúterdiń jelilik kartasyn Hub-a portyna qosý úshin qajetti kompúterdi tintýirdiń sol jaq batyrmasymen basý kerek. Ashylǵan grafıkalyq mázirde fastethernet0 portyn tańdap, kabeldi kompúterden habqa aparyńyz, onda uqsas mázirde habtyń kez-kelgen tegin Fast Ethernet portyn tańdańyz. Bul jaǵdaıda árdaıym kelesi erejeni ustanǵan jón: server úshin biz 0-shi portty, PC1 úshin - 1 - shi portty, PS2 úshin-2-shi portty jáne t.b. tańdaımyz. Jeli túıinderine IP mekenjaılary men maskany taǵaıyndańyz. Muny isteý úshin qajetti kompúterdi eki ret nuqyńyz, sodan keıin `Config` (Konfıgýrasıa)- `Interface` (Interfeıs)- `Fast Ethernet` 0. IP Configuration (IP parametri) parametrler tobynda static (statıkalyq) qosqyshy iske qosylýy kerek `IP` mekenjaıy órisine kompúterdiń IP mekenjaıyn engizý kerek, maska avtomatty túrde paıda bolady. `Port` kúıi (Port kúıi) - On (qosýly).
+Инструмент создания заметок Place Note
+--
+Note place note quralyn (N pernesi) paıdalanyp, biz barlyq IP qurylǵylaryna qol qoıamyz jáne jumys keńistiginiń joǵarǵy jaǵynda"topologıany zertteý juldyzy" jobasynyń taqyrybyn ![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_2.png)`Sýret. 3.2. Biz Place note quralyn qoldanamyz (eskertý)`
+>Keńes
+>IP mekenjaılaryn config (Konfıgýrasıa) terezesinen kóshirý kerek. Bul áreketti oryndaý kezinde Place note quralyn iske qosyńyz (eskertý).
+>
+>Jumys keńistigin jazýlarmen toltyrýdy boldyrmaý úshin biz qurylǵy túrleriniń jazýlaryn (belgilerin) alyp tastaımyz: Packet Tracer terezesiniń joǵarǵy jaǵyndaǵy opsıalar (opsıalar) mázirin ashamyz, sodan keıin ashylmaly tizimnen Preferens (Parametrler) tarmaǵyn tańdap, dıalogtyq terezede Show device model labels qusbelgisin alyp tastaımyz (qurylǵy modelderin kórsetý)
+
+![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_3.png)`Sýret. 3.3. Show device model labels qusbelgisin óshirińiz`
+
+Jeliniń densaýlyǵyn tekserý úshin biz kompúterden basqa kompúterge ping synaq sıgnalyn jiberemiz jáne `Simulation` (modeldeý) rejımine aýysamyz. `Event list` (oqıǵalar tizimi) terezesinde `Edit filters` (súzgilerdi ózgertý) batyrmasyn paıdalanyp, aldymen súzgilerdi sıgnaldyń barlyq túrlerinen tazalańyz, sodan keıin sıgnaldy basqarý túrin ornatyńyz: tek `ICMP`.
+
+Oqıǵa tizimi (oqıǵalar tizimi) jabylady ![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_4.png)
+Terezeniń oń jaǵynda, grafıkalyq mázirde (qarapaıym PDU) tańdap, tintýirdi nuqyńyz, ony kompúterge ornatyńyz-sıgnal kózin tańdańyz (mysaly, PC3), sodan keıin taǵaıyndalǵan túıinde (bul server bolsyn). `Capture|Forward` (túsirý/Alǵa) batyrmasyn basý arqyly biz PDU paketiniń qadamdyq ilgerileýin ![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_5.png)`Sýret. 3.5. Paketterdiń jeli arqyly sátti ótýi`
+>**Jańa termın** PDU-OSI modeliniń ártúrli deńgeılerindegi málimetter fragmentiniń jalpylanǵan ataýy: Ethernet jaqtaýy, IP paketi, udp datagramlary, tcp segmenti jáne t. b.
+
+CPT-de jumys isteýdiń paıdaly ádisteri 
+--
+Kelesi jelini jobalaý jáne konfıgýrasıalaý kerek delik ( sýret. 3.6). Bul prosesti qalaı tezdetýge jáne jeńildetýge bolatynyn ![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_6.png)`Sýret. 3.6. Tapsyrma qoıý`
+
+Поместите в рабочую область первый ПК (это будет PC) и настройте ![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_7.png)`Рис. 3.7. Настраиваем PC0`
+
+Pernesin basyp turyńyz Ctrl bul kompúterdi birneshe ret kóshirip, kompúterdiń qalǵan meken-jaılaryn konfıgýrasıalańyz, tek sońǵy IP nómirin ![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_8.png)`Sýret. 3.8. Úsh kompúterdi jyldam qurý jáne konfıgýrasıalaý`
+
+Ári qaraı, ustap turyp kóshirińiz Ctrl birden úsh DK jáne olardy konfıgýrasıalańyz, tek IP mekenjaıynyń sońǵy sıfryn ![](https://intuit.ru/EDI/17_07_20_1/1594937994-30092/tutorial/778/objects/3/files/3_9.png)`Sýret. 3.9. Barlyq úsh kompúterdi birden kóshirińiz`
+
+Biz dástúrli túrde komýtator men habty qosamyz, al kabeldi qosý avtomatty.

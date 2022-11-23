@@ -5,6 +5,8 @@ import Admin from "./views/admin/admin";
 import New from "./views/admin/new";
 import Index from "./views/index";
 import Read from "./views/read";
+import Exam from "./views/exam";
+import Certificate from './views/certificate';
 
 export const Router = createBrowserRouter([
     {
@@ -18,6 +20,14 @@ export const Router = createBrowserRouter([
                     return axios.get("http://localhost:4000/api/v1/all/lecture")
                 }
 
+            },
+            {
+                path: "exam",
+                element: <Exam/>
+            },
+            {
+                path: "certificate",
+                element: <Certificate/>
             },
             {
                 path: "/lecture/:title",
