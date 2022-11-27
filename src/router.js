@@ -1,4 +1,4 @@
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter, redirect} from "react-router-dom";
 import App from './App';
 import axios from "axios";
 import Admin from "./views/admin/admin";
@@ -7,6 +7,12 @@ import Index from "./views/index";
 import Read from "./views/read";
 import Exam from "./views/exam";
 import Certificate from './views/certificate';
+import NewTest from "./views/admin/newTest";
+import Tests from './views/test';
+import Signin from "./views/signin";
+import Signup from "./views/signup";
+import Ball from "./views/ball";
+//говард хьюз
 
 export const Router = createBrowserRouter([
     {
@@ -23,7 +29,31 @@ export const Router = createBrowserRouter([
             },
             {
                 path: "exam",
-                element: <Exam/>
+                element: <Exam/>,
+                loader: async() => {
+                    if(sessionStorage.getItem('jwt')){
+                        return axios.get(`http://localhost:4000/api/v1/get/test/exam`);
+                    }else{
+                        return redirect('/singin');
+                    }
+                    
+                },
+
+            },
+            {
+                path: "ball/:title",
+                element: <Ball/>,
+                loader: async ({params}) => {
+                    if(params.title == "exam") {
+                        if(!sessionStorage.getItem('jwt') || !sessionStorage.getItem('numberQuestion')){
+                            return redirect("/exam");
+                        }
+                    }else if(!sessionStorage.getItem('numberQuestion')){
+                        return redirect("/");
+                    }
+                    
+                }
+
             },
             {
                 path: "certificate",
@@ -32,19 +62,62 @@ export const Router = createBrowserRouter([
             {
                 path: "/lecture/:title",
                 element: <Read/>,
-                loader: async({params})=> {
+                loader: async({params}) => {
                     return axios.get(`http://localhost:4000/api/v1/get/lecture/${params.title}`);
                 }
+            },
+            {
+                path: "/test/:lecture",
+                element: <Tests/>,
+                loader: async({params}) => {
+                    return axios.get(`http://localhost:4000/api/v1/get/test/${params.lecture}`);
+                },
+                children:[
+                    {
+                        path: "ball",
+                        element: <Ball/>,
+                        loader: async () => {
+                            if(!sessionStorage.getItem('numberQuestion')){
+                                return redirect("/");
+                            }
+                        }
+
+                    }
+                ]
             }
         ]
     }, 
+    {
+        path: "/singin",
+        element: <Signin/>,
+        loader: async ()=> {
+            if(sessionStorage.getItem('jwt')){
+                return redirect("/");
+            }
+        }
+    },
+    {
+        path: "/singup",
+        element: <Signup/>,
+        loader: async ()=> {
+            if(sessionStorage.getItem('jwt')){
+                return redirect("/");
+            }
+        }
+    },
     {
         element: <Admin/>,
         path: "/admin",
         children: [
             {
-                element: <New/>,
                 path: "new",
+                element: <New/>,
+            },{
+                path: "test",
+                element: <NewTest/>,
+                loader: async ()=>{
+                    return axios.get("http://localhost:4000/api/v1/all/lecture")
+                }
             }
         ],
     }, 

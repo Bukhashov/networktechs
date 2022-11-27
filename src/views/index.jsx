@@ -4,7 +4,6 @@ import {useLoaderData, Link} from "react-router-dom";
 export default function Index(){
     const data = useLoaderData();
     const titles = data.data.titles;
-    console.log(titles[0].id);
 
     return(
         <div className="flex py-6 flex-wrap justify-center">

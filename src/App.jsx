@@ -2,6 +2,9 @@ import Navbar from './components/Navbar';
 import { Outlet } from "react-router-dom";
 
 function App() {
+  sessionStorage.removeItem("tasktitle");
+  sessionStorage.removeItem("numberAnswer");
+  sessionStorage.removeItem("numberQuestion");
 
   return (
     <div className="App">

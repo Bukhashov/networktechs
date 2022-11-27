@@ -29,8 +29,7 @@ class Lecture{
     }
     get = async (req, res) => {
         const title = req.params.title
-        console.log(title)
-        
+
         fs.readFile(`${process.cwd()}/public/md/${title}.md`, 'utf8', (err, data)=> {
             res.status(200).json({"title": title, "md": data});
         });

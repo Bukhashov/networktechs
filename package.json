@@ -12,8 +12,12 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
     "marked": "^4.2.3",
     "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "6.4",
@@ -22,8 +26,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "serverStart" : "node server.js",
-    "serverTest" : "nodemon server.js",
+    "serverStart": "node server.js",
+    "serverTest": "nodemon server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

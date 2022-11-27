@@ -1,7 +1,8 @@
 import { useLoaderData, useNavigate} from 'react-router-dom';
-import axios from "axios";
 import Test from '../components/Test';
-export default function Exam(){
+import axios from "axios";
+
+export default function Tests(){
     const data = useLoaderData();
     const navigate = useNavigate();
     const d = data.data;
@@ -30,19 +31,18 @@ export default function Exam(){
             });
         }        
     }
-   
 
     return(
-        <div className="grid">
-            <div className='flex justify-center p-3'><h3 className='text-xl'>{title}</h3></div>
+            <div className="grid">
+                <div className='flex justify-center p-3'><h3 className='text-xl'>{title}</h3></div>
                 <div>
                     {
                         tests.map((test)=> <Test getValueRadioBtn={getValueRadioBtn} id={i++} question={test['question']} av1={test['answer1']} av2={test['answer2']} av3={test['answer3']} av4={test['answer4']} /> )
                     }         
                 </div>
-            <div className="flex justify-center px-10 py-5">
-                <div className="border p-2 cursor-pointer" onClick={controlTest}>Tekseru</div>
+                <div className="flex justify-center px-10 py-5">
+                    <div className="border p-2 cursor-pointer" onClick={controlTest}>Tekseru</div>
+                </div>
             </div>
-        </div>
     )
 }

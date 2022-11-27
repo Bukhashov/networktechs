@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-var cors = require('cors')
+var cors = require('cors');
+const passport = require('passport');
 const router = require('./app/routes/router');
 const db = require('./database');
 
@@ -14,7 +15,8 @@ app.use(cors({
     origin: '*',
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }))
-
+// app.use(passport.initialize());
+require('./middleware/passport')(passport)
 app.use('/api/v1', router)
 
 app.listen(port, ()=> {

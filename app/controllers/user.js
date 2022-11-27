@@ -1,29 +1,39 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const db = require('../../database');
 const saltRounds = 10;
+const JWT_KEY = process.env.JWT_KEY
 
 class User {
-    singin = async (req, res)=> {
+    signin = async (req, res)=> {
         const email = req.body.email;
         const password = req.body.password;
 
         db.each(`SELECT * FROM users WHERE email='${email}'`, (err, user) => {        
             if(user != null){
                 let controlPassword = bcrypt.compare(password, user.password);
-                
                 if(controlPassword){
+                    const token = jwt.sign({
+                        email: user.email,
+                        uid: user.id,
+                    }, JWT_KEY, {
+                        expiresIn: (2*60)*60
+                    });
                     res.status(200).json({ 
-                        token: ""
+                        uid: user.id,
+                        lastname: user.lastname,
+                        firstname: user.firstname,
+                        token: token
                     });
                 }else{
-                    res.status(400).json({
+                    res.status(404).json({
                         massage: "user not found"
                     });
                 }
             }
         });
     }
-    singup = async (req, res) => {
+    signup = async (req, res) => {
         const lastname = req.body.lastname;
         const firstname = req.body.firstname;
         const email = req.body.email;
