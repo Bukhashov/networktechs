@@ -1,8 +1,6 @@
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar(){
-    let location = useLocation();
-    console.log(location);
     const navigate = useNavigate();
 
     let controlLastname = false;
@@ -31,7 +29,8 @@ export default function Navbar(){
                 <div className="menu_item mx-2"><Link to={"/"}>Därιster</Link></div>
                 <div className="menu_item mx-2"><Link to={"/exam"}>Emtihan</Link></div>
                 <div className="menu_item mx-2"><Link to={"/certificate"}>Sertifikat</Link></div>
-                
+                <div className="menu_item mx-2"><a href="https://www.netacad.com/portal/resources/file/84f3e715-2e22-435a-8742-fd51f136cf73">Cisco Packet Tracer</a></div>
+                <div className="menu_item mx-2 pointer"><Link to={"/media"}>Beineler</Link></div>
             </div>
             <div className={controlLastname ? "hidden auth flex items-center" : "block auth flex items-center"}>
                 <div className="auth_item"><Link to={"/singin"}>Kιru</Link></div>

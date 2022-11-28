@@ -3,7 +3,7 @@ const router = Router();
 const User = require('../controllers/user');
 const Lecture = require('../controllers/lecture');
 const Test = require('../controllers/tests');
-const passport = require('passport');
+const Media = require('../controllers/media');
 
 // USER
 router.post('/user/signin', User.signin);
@@ -20,5 +20,8 @@ router.get('/delete/lecture/:title', Lecture.delete); // delete
 router.get('/get/test/:title', Test.get);
 router.post('/control/test', Test.control);
 router.post('/new/test', Test.new);
+// Media
+router.get('/getall/media', Media.getAll);
+router.post('/new/media', Media.new);
 
 module.exports = router;

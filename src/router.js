@@ -12,6 +12,7 @@ import Tests from './views/test';
 import Signin from "./views/signin";
 import Signup from "./views/signup";
 import Ball from "./views/ball";
+import Media from "./views/media";
 //говард хьюз
 
 export const Router = createBrowserRouter([
@@ -25,7 +26,6 @@ export const Router = createBrowserRouter([
                 loader: async ()=> {
                     return axios.get("http://localhost:4000/api/v1/all/lecture")
                 }
-
             },
             {
                 path: "exam",
@@ -72,21 +72,16 @@ export const Router = createBrowserRouter([
                 loader: async({params}) => {
                     return axios.get(`http://localhost:4000/api/v1/get/test/${params.lecture}`);
                 },
-                children:[
-                    {
-                        path: "ball",
-                        element: <Ball/>,
-                        loader: async () => {
-                            if(!sessionStorage.getItem('numberQuestion')){
-                                return redirect("/");
-                            }
-                        }
-
-                    }
-                ]
             }
         ]
-    }, 
+    },
+    {
+        path: "/media",
+        element: <Media/>,
+        loader: async ()=> {
+            return axios.get("http://localhost:4000/api/v1/getall/media")
+        }
+    },
     {
         path: "/singin",
         element: <Signin/>,

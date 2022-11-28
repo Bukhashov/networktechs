@@ -34,6 +34,11 @@ const db = new sqlite3.Database("db.db", (e)=>{
             question INTEGER,
             anwser INTEGER
         );`);
+        db.run(`CREATE TABLE IF NOT EXISTS media(
+            id INTEGER PRIMARY KEY,
+            title VARCHAR(150),
+            src VATCHAR(500)
+        )`);
 
     }catch(e){
         console.log(`DATABASE| ${e}`);
