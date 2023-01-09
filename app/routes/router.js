@@ -24,4 +24,8 @@ router.post('/new/test', Test.new);
 router.get('/getall/media', Media.getAll);
 router.post('/new/media', Media.new);
 
+router.get('/get/certificate', (req, res)=> {
+    res.sendFile('../../public/images/certificate.jpg')
+})
+
 module.exports = router;
